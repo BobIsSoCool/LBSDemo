@@ -5,28 +5,99 @@
     android:layout_height="match_parent"
     tools:context="com.example.wub.lbsdemo.MainActivity">
 
-    <com.baidu.mapapi.map.MapView
-        android:id="@+id/mapView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clickable="true"></com.baidu.mapapi.map.MapView>
 
-    <TextView
-        android:id="@+id/tvPosition"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="定位中..."
-        android:layout_alignParentRight="true"
-        android:layout_margin="16dp"
-        />
 
     <Button
         android:id="@+id/bt_MoveToMeOnMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Show Me"
-        android:alpha="0.6"
         android:layout_margin="14dp"
-        android:textColor="#FFF"
-        android:background="@color/colorPrimary"/>
+        android:alpha="0.6"
+        android:background="@color/colorPrimary"
+        android:text="Show Me"
+        android:textColor="#FFF" />
+
+    <LinearLayout
+        android:id="@+id/llSearchPart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="#FFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etSearchContent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/shape_bg_search"
+                android:gravity="center_vertical"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <Button
+                android:id="@+id/btSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:text="search"
+                android:textColor="#FFF"
+                android:textSize="16sp" />
+
+            <CheckBox
+                android:id="@+id/cbHideOrShowList"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginRight="16dp"
+                android:layout_gravity="center_vertical"
+                android:checked="false"
+                android:button="@null"
+                android:background="@drawable/selector_bg_checkbox"/>
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lvSearchResult"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:visibility="gone"></ListView>
+
+    </LinearLayout>
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:layout_above="@id/llSearchPart"></com.baidu.mapapi.map.MapView>
+
+    <ImageView
+        android:id="@+id/ivQuanJing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bt_MoveToMeOnMap"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:src="@drawable/icon_quanjing32"/>
+
+    <TextView
+        android:id="@+id/tvPosition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:gravity="right"
+        android:layout_margin="16dp"
+        android:padding="10dp"
+        android:text="定位中..."
+        android:textColor="@color/colorPrimary"/>
 </RelativeLayout>
